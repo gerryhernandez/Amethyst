@@ -135,7 +135,7 @@ final class WindowManager<Application: ApplicationType>: NSObject, Codable {
         for window in application.windows() {
             remove(window: window)
         }
-        guard let applicationIndex = applications.index(of: application) else {
+        guard let applicationIndex = applications.firstIndex(of: application) else {
             return
         }
         applications.remove(at: applicationIndex)
@@ -618,7 +618,7 @@ extension WindowManager {
     }
 
     func screenManagerIndex(for screen: Screen) -> Int? {
-        return screens.screenManagers.index { $0.screen?.screenID() == screen.screenID() }
+        return screens.screenManagers.firstIndex { $0.screen?.screenID() == screen.screenID() }
     }
 }
 

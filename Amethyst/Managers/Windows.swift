@@ -74,7 +74,7 @@ extension WindowManager {
         }
 
         func remove(window: Window) {
-            guard let windowIndex = windows.index(of: window) else {
+            guard let windowIndex = windows.firstIndex(of: window) else {
                 return
             }
 
@@ -82,7 +82,7 @@ extension WindowManager {
         }
 
         @discardableResult func swap(window: Window, withWindow otherWindow: Window) -> Bool {
-            guard let windowIndex = windows.index(of: window), let otherWindowIndex = windows.index(of: otherWindow) else {
+            guard let windowIndex = windows.firstIndex(of: window), let otherWindowIndex = windows.firstIndex(of: otherWindow) else {
                 return false
             }
 
